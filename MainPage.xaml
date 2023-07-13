@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:Market.Model"
+             x:Class="Market.MainPage">
+
+    <ScrollView>
+        <CollectionView>
+            <CollectionView.ItemsSource>
+                <x:Array Type="{x:Type model:Product}">
+                    <model:Product Name="XXX" Icon="https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg" Price="12" Quantity="1"></model:Product>
+                    <model:Product Name="RRR" Icon="https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg" Price="13"></model:Product>
+                </x:Array>
+            </CollectionView.ItemsSource>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Product">
+                    <Border
+                        Stroke="Red"
+                        StrokeThickness="1"
+                        StrokeShape="RoundRectangle 20 20 20 20"
+                        Background="{StaticResource Gray100}" >
+                        <HorizontalStackLayout Padding="10" Spacing="10">
+
+                            <Image Source="{Binding Icon}"
+                               WidthRequest="50"
+                               HeightRequest="50"
+                               Aspect="AspectFill"></Image>
+                            <VerticalStackLayout Padding="10" Spacing="10" VerticalOptions="Center">
+                                <Label Text="{Binding Name}" FontSize="24" TextColor="DarkRed"></Label>
+                                <Label Text="{Binding Price}" FontSize="16" TextColor="BlueViolet"></Label>
+                                <Label Text="{Binding Quantity}" FontSize="13" TextColor="MediumSeaGreen"></Label>
+
+                                <!--MultiBinding-->
+
+                                <Label 
+                                    FontSize="8"
+                                    HorizontalOptions="Center" 
+                                    VerticalOptions="Center"
+                                    VerticalTextAlignment="Center">
+                                    <Label.Text>
+                                        <MultiBinding StringFormat="{} {0} | {1} | {2}">
+                                            <Binding Path="Name"></Binding>
+                                            <Binding Path="Price"></Binding>
+                                            <Binding Path="Quantity"></Binding>
+                                        </MultiBinding>
+                                    </Label.Text>
+                                </Label>
+                            </VerticalStackLayout>
+
+                            <Button Text="Buy!" Clicked="Button_OnClicked" HeightRequest="40"></Button>
+                        </HorizontalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ScrollView>
+
+</ContentPage>
