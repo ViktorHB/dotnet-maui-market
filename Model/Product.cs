@@ -1,10 +1,25 @@
-﻿namespace Market.Model
+﻿using Microsoft.Toolkit.Mvvm.Input;
+
+namespace Market.Model
 {
-    internal class Product
+    public class Product
     {
         public string Name { get; set; }
         public string Icon { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
+
+        public Command BuyButtonClickCommand { get; set; }
+
+        public Product()
+        {
+            BuyButtonClickCommand = new Command(async () => await BuyButtonClickCommandExecute(Name));
+        }
+
+        private async Task BuyButtonClickCommandExecute(string sender)
+        {
+            await Shell.Current.DisplayAlert("Alert", !string.IsNullOrEmpty(sender) ? sender : "No item", "OK");
+        }
+
     }
 }

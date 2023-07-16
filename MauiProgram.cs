@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Market.Services;
+using Market.View;
+using Market.ViewModel;
+using Microsoft.Extensions.Logging;
 
 namespace Market;
 
@@ -19,7 +22,12 @@ public static class MauiProgram
 		builder.Logging.AddDebug();
 #endif
 
+        builder.Services.AddSingleton<ProductService>();
         builder.Services.AddSingleton<MainPage>();
+        builder.Services.AddSingleton<MainPageViewModel>();
+
+        builder.Services.AddTransient<ProductDetailsPageViewModel>();
+        builder.Services.AddTransient<ProductDetailsPage>();
 
         return builder.Build();
 	}

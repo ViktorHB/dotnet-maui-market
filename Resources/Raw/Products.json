@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+  },
+  {
+    "Name": "Salat",
+    "Price": 3.23,
+    "Quantity": 21,
+    "Icon": "https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg"
+  }
+]
