@@ -4,11 +4,64 @@
              x:Class="Market.View.ProductDetailsPage"
              xmlns:viewModel="clr-namespace:Market.ViewModel"
              x:DataType="viewModel:ProductDetailsPageViewModel"
-             Title="ProductDetailsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="{Binding Product.Name}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Shell.PresentationMode="Animated"
+             Title="{Binding Product.Name}">
+    <ScrollView
+        Background="Yellow">
+        <VerticalStackLayout>
+            <Grid
+                RowDefinitions="160, Auto"
+                ColumnDefinitions="*,Auto,*">
+
+                <Rectangle Background="Aqua"
+                           HeightRequest="160"
+                           Grid.ColumnSpan="3">
+                </Rectangle>
+
+                <BoxView
+                    Background="{StaticResource Primary}"
+                    Grid.ColumnSpan="3"
+                    HeightRequest="160"
+                    HorizontalOptions="CenterAndExpand"/>
+
+                <Frame Grid.RowSpan="2"
+                       Grid.Column="1"
+                       HeightRequest="160"
+                       WidthRequest="160"
+                       CornerRadius="80"
+                       HorizontalOptions="Center"
+                       Padding="0"
+                       Margin="0,80, 0, 0"
+                       IsClippedToBounds="True">
+                    <Image Aspect="AspectFill"
+                           HeightRequest="160"
+                           WidthRequest="160"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Source="{Binding Product.Icon}"/>
+                </Frame>
+            </Grid>
+
+            <VerticalStackLayout Padding="10" Spacing="10">
+                <Label Text="{Binding Product.Name}"
+                       HorizontalOptions="Center"
+                       FontSize="26"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+
+                <Label Text="{Binding Product.Quantity,  StringFormat='Available: {0}'}"
+                       HorizontalOptions="Center"
+                       FontSize="26"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+
+                <Label Text="{Binding Product.Price, StringFormat='Price: {0}'}"
+                       HorizontalOptions="Center"
+                       TextColor="Black"
+                       FontSize="26"
+                       FontAttributes="Bold"/>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

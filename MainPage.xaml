@@ -6,13 +6,10 @@
              x:DataType="viewModel:MainPageViewModel"
              x:Class="Market.MainPage"
              Title="{Binding Title}">
-
-
     <Grid ColumnDefinitions="*,*"
           RowDefinitions="*, Auto"
           ColumnSpacing="5">
-
-        <ScrollView>
+        <ScrollView Grid.ColumnSpan="2">
             <VerticalStackLayout>
                 <CollectionView 
                     SelectedItem="{Binding SelectedProduct}"
@@ -52,12 +49,14 @@
                                             </Label.Text>
                                         </Label>
                                     </VerticalStackLayout>
-
                                     <Button
-                                    Text="Buy!"
-                                    Command="{Binding BuyButtonClickCommand}"
-                                    HeightRequest="40"/>
-
+                                        Background="gray"
+                                        HorizontalOptions="Start"
+                                        TextColor="DarkRed"
+                                        VerticalOptions="Center"
+                                        Text="Buy!"
+                                        Command="{Binding BuyButtonClickCommand}"
+                                        HeightRequest="40"/>
                                     <HorizontalStackLayout.GestureRecognizers>
                                         <TapGestureRecognizer
                                             NumberOfTapsRequired="2"
@@ -77,13 +76,20 @@
                 </CollectionView>
             </VerticalStackLayout>
         </ScrollView>
-
         <Button Grid.Row="1"
             WidthRequest="150"
-            Text="your Order!"
+            Text="Your Order!"
             IsEnabled="{Binding IsNotBusy}"
             Command="{Binding  ProductClickCommand}"
             HeightRequest="40"/>
+
+        <Button Grid.Row="1"
+                Grid.Column="1"
+                WidthRequest="150"
+                Text="Find closest!"
+                IsEnabled="{Binding IsNotBusy}"
+                Command="{Binding  GetClosestMarketCommand}"
+                HeightRequest="40"/>
 
         <ActivityIndicator 
             Grid.ColumnSpan="2"
@@ -93,6 +99,4 @@
             IsRunning="{Binding IsBusy}"
             IsVisible="{Binding IsBusy}"/>
     </Grid>
-
-
 </ContentPage>

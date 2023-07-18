@@ -3,48 +3,45 @@
     "Name": "Burger",
     "Price": 1.23,
     "Quantity": 2,
+    "Location": "Central & South America",
+    "Latitude": 12.769013,
+    "Longitude": -85.602364,
     "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
   },
   {
     "Name": "Burger",
     "Price": 1.23,
     "Quantity": 2,
+    "Location": "Central and East Africa",
+    "Latitude": 1.957709,
+    "Longitude": 37.297204,
+    "Icon": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/tamarin.jpg"
+  },
+  {
+    "Name": "Burger",
+    "Price": 1.23,
+    "Quantity": 2,
+    "Location": "Central & South America",
+    "Latitude": -8.783195,
+    "Longitude": -55.491477,
     "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
   },
   {
     "Name": "Burger",
     "Price": 1.23,
     "Quantity": 2,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
-  },
-  {
-    "Name": "Burger",
-    "Price": 1.23,
-    "Quantity": 2,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
-  },
-  {
-    "Name": "Burger",
-    "Price": 1.23,
-    "Quantity": 2,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
-  },
-  {
-    "Name": "Burger",
-    "Price": 1.23,
-    "Quantity": 2,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
-  },
-  {
-    "Name": "Burger",
-    "Price": 1.23,
-    "Quantity": 2,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+    "Location": "South America",
+    "Icon": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/alouatta.jpg",
+    "Latitude": -8.783195,
+    "Longitude": -55.491477
   },
   {
     "Name": "Salat",
     "Price": 3.23,
     "Quantity": 21,
+    "Location": "Africa & Asia",
+    "Latitude": -8.783195,
+    "Longitude": 34.508523,
     "Icon": "https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg"
   }
 ]

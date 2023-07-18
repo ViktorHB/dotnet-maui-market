@@ -8,6 +8,9 @@ namespace Market.Model
         public string Icon { get; set; }
         public double Price { get; set; }
         public int Quantity { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
+        public string Location { get; set; }
 
         public Command BuyButtonClickCommand { get; set; }
 

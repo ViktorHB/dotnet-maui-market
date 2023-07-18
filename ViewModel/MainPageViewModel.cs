@@ -13,10 +13,15 @@ namespace Market.ViewModel
         [ObservableProperty] public ObservableCollection<Product> products;
         [ObservableProperty] public Product selectedProduct;
 
-        public MainPageViewModel(ProductService productService)
+        private IConnectivity _connectivity;
+        private IGeolocation _geolocation;
+
+        public MainPageViewModel(ProductService productService, IConnectivity connectivity, IGeolocation geolocation)
         {
             Title = "Products";
             _productService = productService;
+            _connectivity = connectivity;
+            _geolocation = geolocation;
             GetProductsCommand.Execute(this);
         }
 
@@ -35,6 +40,12 @@ namespace Market.ViewModel
 
             try
             {
+                if (_connectivity.NetworkAccess != NetworkAccess.Internet)
+                {
+                    await Shell.Current.DisplayAlert("Internet issue", "No internet connection", "Ok");
+                    return;
+                }
+
                 IsBusy = true;
                 Products = new ObservableCollection<Product>(await _productService.GetProductsAsync());
             }
@@ -42,6 +53,63 @@ namespace Market.ViewModel
             {
                 Debug.WriteLine(ex);
                 await Shell.Current.DisplayAlert("error", ex.Message, "Ok");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
+        }
+
+        [ICommand]
+        private async Task GetClosestMarketAsync()
+        {
+            if (IsBusy || Products.Count == 0)
+            {
+                return;
+            }
+
+            try
+            {
+                IsBusy = true;
+                var isLocationPermission = await Permissions.CheckStatusAsync<Permissions.LocationWhenInUse>();
+
+                if (isLocationPermission != PermissionStatus.Granted)
+                {
+                    return;
+                }
+
+                var location = await _geolocation.GetLastKnownLocationAsync();
+
+                if (location is null)
+                {
+                    location = await _geolocation.GetLocationAsync(new GeolocationRequest
+                    {
+                        DesiredAccuracy = GeolocationAccuracy.Medium,
+                        Timeout = TimeSpan.FromSeconds(5)
+                    });
+                }
+
+                if (location is null)
+                {
+                    return;
+                }
+
+                var closest = Products
+                    .OrderBy(x => location.CalculateDistance(x.Latitude, x.Longitude, DistanceUnits.Kilometers))
+                    .FirstOrDefault();
+
+                if (closest is null)
+                {
+                    return;
+                }
+
+                await Shell.Current.DisplayAlert("Closest market", $"{closest.Name} in {closest.Location}", "OK");
+
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e);
+                await Shell.Current.DisplayAlert("Error", $"Unable to get closest market {e.Message}", "OK");
             }
             finally
             {
@@ -58,7 +126,7 @@ namespace Market.ViewModel
             }
 
             await Shell.Current.GoToAsync(nameof(ProductDetailsPage), true,
-                new Dictionary<string, object> 
+                new Dictionary<string, object>
                 {
                     {"Product", product}
                 });
