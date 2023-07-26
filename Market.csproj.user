@@ -14,4 +14,7 @@
     <RuntimeIdentifier>ios-arm64</RuntimeIdentifier>
     <PlatformTarget>arm64</PlatformTarget>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
+    <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>
+  </PropertyGroup>
 </Project>

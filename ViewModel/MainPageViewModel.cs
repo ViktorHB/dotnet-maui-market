@@ -9,15 +9,16 @@ namespace Market.ViewModel
     public partial class MainPageViewModel : ViewModelBase
     {
         private readonly ProductService _productService;
+        private readonly IConnectivity _connectivity;
+        private readonly IGeolocation _geolocation;
 
         [ObservableProperty] public ObservableCollection<Product> products;
         [ObservableProperty] public Product selectedProduct;
-
-        private IConnectivity _connectivity;
-        private IGeolocation _geolocation;
+        [ObservableProperty] public bool isRefreshing;
 
         public MainPageViewModel(ProductService productService, IConnectivity connectivity, IGeolocation geolocation)
         {
+            TextToSpeech.SpeakAsync("Welcome", CancellationToken.None);
             Title = "Products";
             _productService = productService;
             _connectivity = connectivity;
@@ -28,6 +29,24 @@ namespace Market.ViewModel
         private async Task GetProductsCommandExecute()
         {
             await GetProductsAsync();
+        }
+
+        [ICommand]
+        private async Task RefreshAsync()
+        {
+            try
+            {
+                IsBusy = true;
+                IsRefreshing = true;
+                GetProductsCommand.Execute(this);
+                IsBusy = false;
+                IsRefreshing = false;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+                await Shell.Current.DisplayAlert("error", ex.Message, "Ok");
+            }
         }
 
         [ICommand]

@@ -42,6 +42,12 @@
                 </Frame>
             </Grid>
 
+            <Button Text="Show on map"
+                    Command="{Binding OpenMapCommand}"
+                    HorizontalOptions="Center"
+                    WidthRequest="200"
+                    Margin="10"/>
+
             <VerticalStackLayout Padding="10" Spacing="10">
                 <Label Text="{Binding Product.Name}"
                        HorizontalOptions="Center"
