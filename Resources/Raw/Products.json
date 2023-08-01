@@ -9,29 +9,29 @@
     "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
   },
   {
-    "Name": "Burger",
+    "Name": "Chicken",
     "Price": 1.23,
     "Quantity": 2,
     "Location": "Central and East Africa",
     "Latitude": 1.957709,
     "Longitude": 37.297204,
-    "Icon": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/tamarin.jpg"
+    "Icon": "https://static.onecms.io/wp-content/uploads/sites/43/2022/05/26/8805-CrispyFriedChicken-mfs-3x2-072.jpg"
   },
   {
-    "Name": "Burger",
+    "Name": "Beef",
     "Price": 1.23,
     "Quantity": 2,
     "Location": "Central & South America",
     "Latitude": -8.783195,
     "Longitude": -55.491477,
-    "Icon": "https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg"
+    "Icon": "https://www.allrecipes.com/thmb/Qch2UpqrMAdaLPi6WwJxPHzz6BY=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/sous-vide-brisket-mfs-193-4x3-1-24930daf16854a9091eaff1503aac157.jpg"
   },
   {
-    "Name": "Burger",
+    "Name": "Potato",
     "Price": 1.23,
     "Quantity": 2,
     "Location": "South America",
-    "Icon": "https://raw.githubusercontent.com/jamesmontemagno/app-monkeys/master/alouatta.jpg",
+    "Icon": "https://cdn.mos.cms.futurecdn.net/iC7HBvohbJqExqvbKcV3pP.jpg",
     "Latitude": -8.783195,
     "Longitude": -55.491477
   },

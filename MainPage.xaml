@@ -14,11 +14,11 @@
                      Command="{Binding RefreshCommand}"/>
     </ContentPage.ToolbarItems>
 
-    <Grid ColumnDefinitions="*,*"
+    <Grid ColumnDefinitions="*,*,*"
           RowDefinitions="*, Auto"
           ColumnSpacing="5">
 
-        <RefreshView Grid.ColumnSpan="2"
+        <RefreshView Grid.ColumnSpan="3"
                      IsRefreshing="{Binding IsRefreshing}"
                      Command="{Binding RefreshCommand}">
             <ScrollView >
@@ -29,33 +29,47 @@
                     ItemsSource="{Binding Products}">
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout Orientation="Vertical"
-                                             Span="{OnIdiom Desktop=3, Default=1}"></GridItemsLayout>
+                                             Span="{OnIdiom Desktop=3, Default=1}"/>
                         </CollectionView.ItemsLayout>
+                        <CollectionView.EmptyView>
+                            <StackLayout>
+                                <Label Text="No results matched your filter."
+                                       Margin="10,25,10,10"
+                                       FontAttributes="Bold"
+                                       FontSize="18"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                                <Label Text="Try a broader filter?"
+                                       FontAttributes="Italic"
+                                       FontSize="12"
+                                       HorizontalOptions="Fill"
+                                       HorizontalTextAlignment="Center" />
+                            </StackLayout>
+                        </CollectionView.EmptyView>
                         <CollectionView.ItemTemplate>
                             <DataTemplate x:DataType="model:Product">
                                 <Frame
-                                Margin="10"
-                                Background="white">
+                                    Style="{StaticResource ProductFrameStyle}">
                                     <HorizontalStackLayout
-                                    Padding="10" 
-                                    Spacing="10">
+                                        Padding="10" 
+                                        Spacing="10">
                                         <Image Source="{Binding Icon}"
-                                           WidthRequest="50"
-                                           HeightRequest="50"
-                                           Aspect="AspectFill"/>
+                                               WidthRequest="50"
+                                               HeightRequest="50"
+                                               Aspect="AspectFill"/>
                                         <VerticalStackLayout Padding="10" Spacing="10" VerticalOptions="Center">
                                             <Label x:Name="ProductName" Text="{Binding Name}"
-                                               Style="{StaticResource LargeLabelStyle}"/>
+                                                   Style="{StaticResource LargeLabelStyle}"/>
                                             <Label Text="{Binding Price}" FontSize="16" TextColor="BlueViolet"/>
                                             <Label Text="{Binding Quantity}" FontSize="13" TextColor="MediumSeaGreen"/>
 
                                             <!--MultiBinding-->
 
                                             <Label 
-                                    FontSize="8"
-                                    HorizontalOptions="Center" 
-                                    VerticalOptions="Center"
-                                    VerticalTextAlignment="Center">
+                                                FontSize="8"
+                                                HorizontalOptions="Center" 
+                                                VerticalOptions="Center"
+                                                VerticalTextAlignment="Center">
                                                 <Label.Text>
                                                     <MultiBinding StringFormat="{} {0} | {1} | {2}">
                                                         <Binding Path="Name"/>
@@ -94,40 +108,37 @@
                                 <Label Text="{Binding Name}"></Label>
                             </DataTemplate>
                         </CollectionView.GroupHeaderTemplate>
-                        <CollectionView.EmptyView>
-                            <StackLayout>
-                                <Label Text="No results matched your filter."
-                                   Margin="10,25,10,10"
-                                   FontAttributes="Bold"
-                                   FontSize="18"
-                                   HorizontalOptions="Fill"
-                                   HorizontalTextAlignment="Center" />
-                                <Label Text="Try a broader filter?"
-                                   FontAttributes="Italic"
-                                   FontSize="12"
-                                   HorizontalOptions="Fill"
-                                   HorizontalTextAlignment="Center" />
-                            </StackLayout>
-                        </CollectionView.EmptyView>
                     </CollectionView>
                 </VerticalStackLayout>
             </ScrollView>
         </RefreshView>
 
-        <Button Grid.Row="1"
-            WidthRequest="150"
-            Text="Your Order!"
-            IsEnabled="{Binding IsNotBusy}"
-            Command="{Binding  ProductClickCommand}"
-            HeightRequest="40"/>
+            <Button Grid.Row="1"
+                    WidthRequest="150"
+                    Text="Your Order!"
+                    Style="{StaticResource ButtonsStyle}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Command="{Binding  ProductClickCommand}"
+                    HeightRequest="40"/>
 
-        <Button Grid.Row="1"
-                Grid.Column="1"
-                WidthRequest="150"
-                Text="Find closest!"
-                IsEnabled="{Binding IsNotBusy}"
-                Command="{Binding  GetClosestMarketCommand}"
-                HeightRequest="40"/>
+            <Button Grid.Row="1"
+                    Grid.Column="1"
+                    WidthRequest="150"
+                    Text="Find closest!"
+                    Style="{StaticResource ButtonsStyle}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Command="{Binding  GetClosestMarketCommand}"
+                    HeightRequest="40"/>
+
+            <Button Grid.Row="1"
+                    WidthRequest="100"
+                    HorizontalOptions="Start"
+                    Grid.Column="2"
+                    Text="Clear"
+                    Style="{StaticResource ButtonsStyle}"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Command="{Binding  ClearProductsCommand}"
+                    HeightRequest="40"/>
 
         <ActivityIndicator 
             Grid.ColumnSpan="2"

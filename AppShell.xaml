@@ -10,5 +10,4 @@
         Title="Market"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
-
 </Shell>

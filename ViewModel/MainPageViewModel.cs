@@ -50,6 +50,12 @@ namespace Market.ViewModel
         }
 
         [ICommand]
+        private async Task ClearProductsAsync()
+        {
+            products.Clear();
+        }
+
+        [ICommand]
         private async Task GetProductsAsync()
         {
             if (IsBusy)
